@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace itvdn_demo.Controllers
+namespace prepare_for_demo.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -13,6 +13,9 @@ namespace itvdn_demo.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
 
+        int BadNonAssigned;
+        object BadAssignedNull = null;
+
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
             _logger = logger;
@@ -21,6 +24,11 @@ namespace itvdn_demo.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
+            
+            // BAD CODE
+            ICollection<WeatherForecastController> list = new List<WeatherForecastController>();
+            list.Add(null);
+
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
