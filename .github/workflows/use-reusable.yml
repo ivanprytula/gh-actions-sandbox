@@ -5,7 +5,7 @@ on:
 
 jobs:
   job1:
-    uses: OlegZarevych/itvdn-demo/.github/workflows/reusable.yml@main
+    uses: ivanprytula/gh-actions-sandbox/.github/workflows/reusable.yml@main
 
   job2:
     runs-on: ubuntu-latest
